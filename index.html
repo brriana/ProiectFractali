@@ -305,38 +305,43 @@
             margin-top: 35px;
         }
 
+        /* structura cadru imbunatatita pentru protectia pozelor */
         .frame {
             position: relative;
             border-radius: 16px;
             overflow: hidden;
-            height: 380px;
+            width: 100%;
+            aspect-ratio: 16 / 10;
             border: 1px solid rgba(255,42,116,0.15);
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            background-color: #000;
         }
 
         .frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
+            display: block;
             transition: transform 0.8s cubic-bezier(0.1, 1, 0.1, 1);
         }
 
         .frame:hover img {
-            transform: scale(1.12);
+            transform: scale(1.08);
         }
 
         .meta-desc {
             position: absolute;
             bottom: 0; left: 0; width: 100%;
-            background: linear-gradient(to top, rgba(10,5,11,1) 35%, rgba(10,5,11,0.85), transparent);
-            padding: 25px;
-            transform: translateY(10px);
+            background: linear-gradient(to top, rgba(10,5,11,1) 45%, rgba(10,5,11,0.85), transparent);
+            padding: 22px;
+            transform: translateY(0);
             transition: all 0.4s ease;
         }
 
         .meta-desc h4 {
             color: var(--neon-pink);
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             font-size: 1.25rem;
             text-transform: uppercase;
         }
@@ -344,46 +349,7 @@
         .meta-desc p {
             font-size: 0.95rem;
             color: var(--text-muted);
-        }
-
-        /* sectiunea video externa securizata */
-        .video-redirect-box {
-            max-width: 800px;
-            margin: 80px auto 0 auto;
-            background: linear-gradient(135deg, rgba(20, 10, 25, 0.9), rgba(40, 15, 45, 0.9));
-            border: 2px solid var(--neon-pink);
-            border-radius: 20px;
-            padding: 50px;
-            text-align: center;
-            box-shadow: 0 0 35px var(--accent-glow);
-        }
-
-        .video-redirect-box h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--text-pure);
-        }
-
-        .video-btn {
-            display: inline-block;
-            margin-top: 25px;
-            background: var(--neon-pink);
-            color: var(--text-pure);
-            text-decoration: none;
-            padding: 15px 40px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            text-transform: uppercase;
-            box-shadow: 0 5px 20px rgba(255, 42, 116, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .video-btn:hover {
-            background: var(--neon-red);
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 42, 116, 0.6);
+            line-height: 1.5;
         }
 
         footer {
@@ -397,7 +363,6 @@
         @media (max-width: 992px) {
             .grid-2, .study-gallery { grid-template-columns: 1fr; }
             header h1 { font-size: 3rem; }
-            .frame { height: 280px; }
         }
     </style>
 </head>
@@ -433,16 +398,16 @@
             <div class="main-card">
                 <h3>Dimensiunea Fractală și Matematica Hausdorff</h3>
                 <br>
-                <p>În fizica teoretică, un <strong>fractal</strong> reprezintă o structură geometrică a cărei dimensiune de autoreproducere (numită dimensiune Hausdorff-Besicovitch) depășește strict dimensiunea sa euclidiană topologică. În timp ce o linie dreaptă clasică are dimensiunea 1, iar un plan neted are dimensiunea 2, o curbă fractală complexă (cum ar fi fulgul de zăpadă Koch) are o dimensiune intermediară fracționară (de exemplu, aproximativ 1,2619).</p>
+                <p>În fizica teoretică și mecanica analitică, un <strong>fractal</strong> reprezintă o structură geometrică a cărei dimensiune de autoreproducere (numită dimensiune Hausdorff-Besicovitch) depășește strict dimensiunea sa euclidiană topologică standard. În timp ce o linie dreaptă perfectă are dimensiunea topologică 1, iar un plan geometric neted are dimensiunea 2, o curbă fractală complexă are o dimensiune intermediară fracționară.</p>
                 <br>
-                <p>Această geometrie non-întreagă este definită prin proprietatea de <strong>auto-asemănare</strong>: o parte din sistem este identică sau statistic similară cu întregul. Generarea lor se bazează pe sisteme de funcții iterate (IFS), unde ecuații neliniare sunt aplicate recursiv, transformând feedback-ul matematic într-un generator de complexitate infinită.</p>
+                <p>Această geometrie non-întreagă este definită prin proprietatea fundamentală de <strong>auto-asemănare</strong>: o parte izolată din sistem este statistic identică cu structura macroscopică a întregului. Generarea lor se bazează pe Sisteme de Funcții Iterate (IFS). Prin intermediul acestora, ecuații neliniare aplicate succesiv transformă feedback-ul matematic într-un generator de complexitate infinită, unde ecuația generală de scalare este definită prin raportul logaritmic N = s^D (unde N este numărul de segmente auto-similare, s este factorul de scalare, iar D este dimensiunea fractală).</p>
             </div>
             <div class="main-card">
                 <h3>Teoria Haosului și Atractorii Stranii</h3>
                 <br>
-                <p>Teoria haosului guvernează sistemele dinamice deterministe care manifestă o dependență exponențială de condițiile inițiale. Această sensibilitate înseamnă că o incertitudine microscopică la începutul unui proces fizic va altera macroscopic evoluția sa sistemică (conceptul matematic din spatele <em>Efectului Fluturelui</em>).</p>
+                <p>Teoria haosului guvernează comportamentul sistemelor dinamice deterministe care manifestă o dependență exponențială de condițiile liniare inițiale. Această sensibilitate ascuțită înseamnă că o perturbație microscopică sau o eroare de măsurare la începutul unui proces fizic va altera de-a lungul timpului, în mod radical și imprevizibil, întreaga evoluție macroscopică a sistemului (fenomen descris matematic prin exponenții Lyapunov și cunoscut popular ca <em>Efectul Fluturelui</em>).</p>
                 <br>
-                <p>În spațiul fazelor, traiectoriile acestor sisteme haotice nu se stabilizează niciodată într-o buclă simplă, ci converg către o regiune geometrică numită <strong>atractor straniu</strong>. Structura geometrică de finețe a oricărui atractor straniu din univers este, prin definiție, un fractal. Astfel, fractalii sunt amprentele vizuale sau hărțile statice lăsate în urmă de dinamica haosului din natură.</p>
+                <p>Atunci când comportamentul unui astfel de sistem dinamic este reprezentat grafic în spațiul fazelor, traiectoriile sale complexe nu se stabilizează niciodată într-un punct fix sau într-o buclă simplă oscilatorie. În schimb, ele converg geometric către o regiune multidimensională restrictivă numită <strong>atractor straniu</strong>. Structura geometrică de finețe a oricărui atractor straniu din univers este o topologie fractală. Din acest motiv, fractalii reprezintă vizualizarea statică sau harta geometrică durabilă a mișcării haotice.</p>
             </div>
         </div>
     </section>
@@ -459,9 +424,9 @@
             <div style="padding-top: 20px;">
                 <h3>Sistemul Lindenmayer (L-System) în Optică</h3>
                 <br>
-                <p>Simulatorul grafic din stânga implementează un model numeric de creștere recursivă generat prin ecuații de translație și rotație vectorială. Funcția principală se auto-apelează pe 9 niveluri de adâncime matematică separată.</p>
+                <p>Simulatorul grafic implementat în stânga rulează un model numeric de creștere recursivă bazat pe ecuații de translație, rotație și transformare matriceală afină. Funcția de desenare vectorială se auto-apelează pe 9 niveluri de adâncime matematică separată, generând ramificații succesive.</p>
                 <br>
-                <p>Modificând poziția cursorului pe ordonată și abscisă, perturbați direct parametrii de unghi din ecuație. Acest experiment simulează direct modul în care o mică fluctuație de unghi sau de energie la baza unui sistem fizic (faza de propagare a luminii sau a unui fluid) reorganizează complet geometria macroscopică a rezultatului final.</p>
+                <p>Modificând poziția cursorului pe axele de coordonate X și Y ale pânzei, perturbați în mod direct parametrii de rotație unghiulară din interiorul buclei recursive. Acest experiment demonstrează vizual nucleul legilor haosului: o variație infimă de câteva sutimi de pixel la nivelul trunchiului inițial reorganizează radical și geometric întreaga distribuție a vectorilor din coroana exterioară a fractalului.</p>
             </div>
         </div>
     </section>
@@ -471,18 +436,18 @@
         <div class="tech-list">
             
             <div class="tech-item">
-                <h3>A. Compresia și Interpolarea Fractală (Senzori și Algoritmi)</h3>
-                <p>Când măriți o fotografie digitală dincolo de capacitatea hardware a senzorului (zoom digital extrem), algoritmii standard adaugă blur deoarece fac o medie aritmetică a pixelilor vecini. Algoritmii de <strong>Interpolare Fractală</strong> analizează blocuri de pixeli la scară mare, determină hărțile de transformare contractivă și aplică ecuația pe arii microscopice. Algoritmul „anticipează” unde ar trebui să apară marginile ascuțite, generând detalii extrem de fine și texturi realiste care imită fizica reală a luminii, un proces esențial în astrofotografie și imagistica medicală.</p>
+                <h3>A. Compresia, Interpolarea Fractală și Reconstrucția de Rezoluție</h3>
+                <p>În procesele avansate de procesare digitală, mărirea unei imagini dincolo de limitele fizice ale senzorului duce la apariția macro-pixelilor sau a efectului de încețoșare. Algoritmii de <strong>Interpolare Fractală</strong> evită această degradare prin maparea imaginii ca un set de transformări contractive. Algoritmul scanează texturile mari (cum ar fi conturul geometric al reliefului sau structura pielii), determină ecuațiile matematice locale de auto-asemănare și generează pixeli microscopici noi care continuă modelul natural la o scară inferioară. Această tehnică este utilizată pe scară largă în astrofotografie pentru clarificarea nebuloaselor și în imagistica prin satelit.</p>
             </div>
 
             <div class="tech-item">
-                <h3>B. Fizica Semiconductorilor și Zgomotul de Imagine Roz (1/f)</h3>
-                <p>Zgomotul termic și de fluctuație care apare în fotografiile realizate la valori ISO ridicate nu este complet aleatoriu (alb), ci structural. Acesta se încadrează în categoria <strong>Zgomotului Fractal sau Zgomotului Roz (cu o densitate spectrală de putere invers proporțională cu frecvența, 1/f)</strong>. Densitatea electronilor din senzorii CMOS se comportă haotic, dar ordonat auto-similar. Motoarele grafice moderne folosesc filtre bazate pe transformate wavelet și geometrie fractală pentru a izola acest zgomot structural fără a altera micro-detaliile native ale imaginii.</p>
+                <h3>B. Fizica Semiconductorilor și Zgomotul de Fluctuație Roz (1/f)</h3>
+                <p>Zgomotul digital prezent în imagini la valori ridicate ale sensibilității ISO nu este o eroare complet albă sau complet aleatorie. Din cauza proprietăților termodinamice ale electronilor din joncțiunile semiconductoare ale senzorilor moderni (CMOS și CCD), granulația parazită urmează o distribuție de <strong>Zgomot Roz sau Zgomot Fractal (unde densitatea spectrală de putere este invers proporțională cu frecvența, reprezentată prin formula S(f) = 1/f^alpha)</strong>. Procesoarele de imagine folosesc transformate matematice wavelet bazate pe geometrie fractală pentru a filtra acest zgomot structural fără a distruge marginile de refracție native ale subiecților fotografiați.</p>
             </div>
 
             <div class="tech-item">
-                <h3>C. Refracție și Reflexie Recursivă în Filtre Optice</h3>
-                <p>În optica fizică aplicată în fotografie, se utilizează prisme de refracție cu geometrie fațetată recursivă. Când undele de lumină pătrund în corpul prismei, frontul de undă este divizat succesiv conform legii lui Snell pe suprafețe cu unghiuri variabile. Rezultatul capturat de senzor este o imagine fragmentată în care reflexiile se succed la infinit în interiorul cadrului, respectând principiile de simetrie ale diagramelor bifatete Julia, oferind efecte optice analogice complexe imposibil de replicat digital.</p>
+                <h3>C. Optica Fizică a Refracției în Filtre și Prisme Recursive</h3>
+                <p>În optica experimentală aplicată în arta fotografică, obiectivele pot fi echipate cu prisme speciale din sticlă crown sau flint, șlefuite în fațete unghiulare recursive. Când frontul de undă al luminii pătrunde în prismă, razele suferă fenomene repetate de refracție și reflexie totală internă conform legii Snell-Descartes. Deoarece unghiurile fețelor de sticlă sunt calculate geometric pe baza seturilor Mandelbrot, lumina proiectată pe senzor multiplică subiectul într-o rețea infinită de reflexii recursive, realizând o fragmentare optică pur analogică.</p>
             </div>
 
         </div>
@@ -493,21 +458,21 @@
 
         <div class="case-study">
             <div class="case-study-title">Studiu de Caz I: Structuri Botanice și Optimizarea Luminii (Crown Shyness)</div>
-            <p>Fotografia macro și de peisaj forestier evidențiază geometria fractală ca răspuns biologic la legile fizice. Fenomenul numit „Sfiiciunea arborilor” (Crown Shyness) arată cum vârfurile copacilor maturi dintr-un ecosistem nu se ating niciodată, lăsând fante de lumină sinuoase. Această auto-organizare urmează un model fractal precis care maximizează eficiența procesului de fotosinteză prin controlul reflexiei și absorbției razelor solare incidente pe frunze.</p>
+            <p>Fotografia macro și de peisaj forestier evidențiază geometria fractală ca un răspuns biologic direct la legile fizice ale mediului. Fenomenul de „Sfiiciune a arborilor” (Crown Shyness) arată cum coroanele copacilor din specii similare își opresc creșterea periferică la o distanță precisă unele de celelalte, creând canale luminoase decorative vizibile în fotografiile realizate de la sol. Această auto-organizare urmează o divizare fractală strictă care optimizează captarea energiei solare, asigurând un echilibru perfect între reflexia și absorbția fotonilor la nivelul frunzelor.</p>
             
             <div class="study-gallery">
                 <div class="frame">
-                    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=700&q=80" alt="Canale de lumina printre copaci">
+                    <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80" alt="Crown Shyness despartirea coroanelor copacilor">
                     <div class="meta-desc">
                         <h4>Geometria Coroanelor</h4>
-                        <p>Analiză de unghi larg ce evidențiază spațiile inter-ramuri ce copiază perfect diagramele de fragmentare celulară Voronoi.</p>
+                        <p>Fotografie de unghi larg ce expune spațiile inter-ramuri ce respectă ecuațiile riguroase de optimizare a spațiului celular.</p>
                     </div>
                 </div>
                 <div class="frame">
-                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=80" alt="Raze de lumina in padure">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80" alt="Raze de lumina soare printre copaci padure">
                     <div class="meta-desc">
                         <h4>Filtrarea Difuză</h4>
-                        <p>Modul în care lumina solară suferă fenomenul de împrăștiere și difracție printre structurile ramificate auto-similare.</p>
+                        <p>Studiu asupra modului în care razele solare suferă fenomene de difracție și împrăștiere printre obstacolele ramificate.</p>
                     </div>
                 </div>
             </div>
@@ -515,21 +480,21 @@
 
         <div class="case-study">
             <div class="case-study-title">Studiu de Caz II: Hidrodinamică, Canioane și Eroziune Satelitară</div>
-            <p>Fotografia aeriană abstractă dezvăluie faptul că rețelele hidrografice (delte, estuare, sisteme de râuri) folosesc aceleași ecuații de deschidere unghiulară ca și vasele capilare sau descărcările electrice. Apa caută calea cu rezistență minimă la curgere într-un mediu geologic eterogen (haotic). Eroziunea rezultată generează văi fractale care păstrează aceeași complexitate geometrică indiferent dacă imaginea este capturată de la 2 metri înălțime sau din satelit, de la 400 de kilometri distanță.</p>
+            <p>Fotografia aeriană abstractă demonstrează că dinamica fluidelor pe suprafețele geologice folosește aceleași ecuații de disipare a energiei indiferent de scara de observație. Rețelele hidrografice, estuarele și deltele mari fotografiate de la mare înălțime arată identic cu ramificațiile descărcărilor electrice sau ale capilarelor biologice. Apa caută întotdeauna traseul de minimă rezistență fizică prin medii poroase sau stâncoase, generând văi și canioane de eroziune a căror dimensiune fractală rămâne constantă în urma analizelor statistice de scalare.</p>
             
             <div class="study-gallery">
                 <div class="frame">
-                    <img src="https://images.unsplash.com/photo-1475113548554-5a36f1f523d6?auto=format&fit=crop&w=700&q=80" alt="Rauri si delte din satelit">
+                    <img src="https://images.unsplash.com/photo-1544945582-3b466d3748cd?auto=format&fit=crop&w=800&q=80" alt="Delta fluviu si rauri vazute de sus satelit abstract">
                     <div class="meta-desc">
                         <h4>Arterele Hidrodinamice</h4>
-                        <p>Imagine satelitară a unei delte fluviale. Ramificarea urmează ecuațiile stricte ale curgerii fluidelor în medii poroase.</p>
+                        <p>Vedere satelitară a unei rețele de râuri unde ramificarea macroscopică oglindește legile curgerii turbulente deterministe.</p>
                     </div>
                 </div>
                 <div class="frame">
-                    <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=700&q=80" alt="Sol crapat uscat de seceta">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Sol crapat uscat texturat de seceta macro">
                     <div class="meta-desc">
                         <h4>Tensiuni de Contracție</h4>
-                        <p>Crăpăturile din solul deshidratat se propagă fracturat. Unghiurile mecanice de rupere reflectă eliberarea uniformă a energiei.</p>
+                        <p>Fotografie macro a solului argilos uscat. Crăpăturile se propagă eliberând uniform tensiunile mecanice interne ale solului.</p>
                     </div>
                 </div>
             </div>
@@ -537,30 +502,24 @@
 
         <div class="case-study">
             <div class="case-study-title">Studiu de Caz III: Ionizarea Plasmei și Termodinamica Microscopică</div>
-            <p>Fotografia de mare viteză și macro-fotografia surprind fenomene fizice extreme guvernate de termodinamică și cinetică moleculară. Fulgerul reprezintă o descărcare de plasmă în atmosfere cu gradient de presiune haotic, aerul ionizat formând filamente fractale. La cealaltă extremă, cristalizarea apei în gheață urmează legi de auto-asamblare unde rețelele cristaline hexagonale se multiplică la scară macro, generând modele de o simetrie uluitoare.</p>
+            <p>Fotografia de mare viteză și macro-fotografia captează stări fizice tranzitorii guvernate de termodinamică și cinetică moleculară. Descărcarea electrică a unui fulger reprezintă ionizarea violentă a gazelor atmosferice de-a lungul unui canal de plasmă fractal, modelat de rezistența haotică a aerului. În mod complementar, cristalizarea apei în gheață reflectă modul în care legăturile hexagonale de hidrogen ghidează asamblarea micro-structurilor moleculare în modele macroscopice perfect auto-similare în condiții de echilibru termic.</p>
             
             <div class="study-gallery">
                 <div class="frame">
-                    <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=700&q=80" alt="Fulger pe cer de noapte">
+                    <img src="https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?auto=format&fit=crop&w=800&q=80" alt="Fulger descarcare electrica reala pe cer de noapte">
                     <div class="meta-desc">
                         <h4>Canale de Ionizare</h4>
-                        <p>Captură rapidă a descărcării electrice. Fiecare ramificație secundară este o copie redusă a canalului principal de plasmă.</p>
+                        <p>Captură fotografică ultra-rapidă a plasmei unde fiecare ramură secundară conservă modelul geometric al trunchiului principal.</p>
                     </div>
                 </div>
                 <div class="frame">
-                    <img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&w=700&q=80" alt="Cristale de gheata macrodetaliu">
+                    <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=800&q=80" alt="Textura macro cristale gheata pe geam">
                     <div class="meta-desc">
                         <h4>Tranziții de Fază</h4>
-                        <p>Macro-fotografie a structurii de îngheț. Creșterea cristalelor este dictată de legile geometrice ale legăturilor de hidrogen.</p>
+                        <p>Macro-fotografie a cristalelor de îngheț, evidențiind multiplicarea microscopică a simetriilor moleculare hexagonale native.</p>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="video-redirect-box">
-            <h3>Documentar Științific: Magia Fractalilor</h3>
-            <p>Deoarece unele browsere blochează rularea directă a playerelor video din motive de securitate locală, puteți accesa materialul video explicativ complet, de înaltă definiție, printr-un link extern securizat.</p>
-            <a href="https://www.youtube.com/watch?v=wXJ4V_p_4AE" target="_blank" class="video-btn">Urmărește Video pe YouTube</a>
         </div>
     </section>
 
@@ -637,6 +596,11 @@
         
         let positionX = renderW / 2;
         let positionY = renderH / 2;
+
+        window.addEventListener('resize', () => {
+            renderW = mainCanvas.width = mainCanvas.parentElement.clientWidth - 50;
+            forceUpdate();
+        });
 
         function renderFractalTree(startX, startY, len, angle, branchLen, depth) {
             if(depth === 0) return;
